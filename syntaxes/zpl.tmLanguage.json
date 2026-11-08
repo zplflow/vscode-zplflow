@@ -2,5 +2,71 @@
   "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
   "name": "ZPL",
   "scopeName": "source.zpl",
-  "patterns": []
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#label-bounds" },
+    { "include": "#field-delimiters" },
+    { "include": "#barcodes" },
+    { "include": "#graphics" },
+    { "include": "#formatting" },
+    { "include": "#numbers" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.fx.zpl",
+          "match": "\\^FX[^\\^~]*"
+        }
+      ]
+    },
+    "label-bounds": {
+      "patterns": [
+        {
+          "name": "keyword.control.label.zpl",
+          "match": "\\^(XA|XZ)"
+        }
+      ]
+    },
+    "field-delimiters": {
+      "patterns": [
+        {
+          "name": "keyword.operator.field.zpl",
+          "match": "\\^(FO|FT|FM|FB|TB|FD|FV|FN|FH|FS|SN|SF)"
+        }
+      ]
+    },
+    "barcodes": {
+      "patterns": [
+        {
+          "name": "entity.name.function.barcode.zpl",
+          "match": "\\^(BY|B[0-9A-Z])"
+        }
+      ]
+    },
+    "graphics": {
+      "patterns": [
+        {
+          "name": "support.function.graphic.zpl",
+          "match": "(\\^(GB|GC|GD|GE|GF|GS|XG|IL|IM)|~(DG|DY|DN))"
+        }
+      ]
+    },
+    "formatting": {
+      "patterns": [
+        {
+          "name": "storage.type.format.zpl",
+          "match": "\\^(A[0-9A-Z]?|CF|CI|CW|FW|LH|LL|LR|LS|LT|MD|MM|MN|MT|MU|PM|PO|PQ|PR|PW|SC|SD)"
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.zpl",
+          "match": "\\b[0-9]+(\\.[0-9]+)?\\b"
+        }
+      ]
+    }
+  }
 }
