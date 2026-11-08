@@ -1,0 +1,120 @@
+{
+  "name": "vscode-zplflow",
+  "displayName": "zplflow — ZPL Live Preview & Label Tools",
+  "description": "Pixel-perfect ZPL thermal label live preview, syntax highlighting, and pipeline tools powered by zplflow.",
+  "version": "0.1.0",
+  "publisher": "zplflow",
+  "license": "MIT",
+  "homepage": "https://zplflow.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zplflow/vscode-zplflow.git"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Visualization",
+    "Other"
+  ],
+  "keywords": [
+    "zpl",
+    "zebra",
+    "label",
+    "thermal printer",
+    "preview",
+    "barcode",
+    "zplflow"
+  ],
+  "activationEvents": [
+    "onLanguage:zpl",
+    "onCommand:zplflow.openPreview"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "zpl",
+        "aliases": [
+          "ZPL (Zebra Programming Language)",
+          "zpl"
+        ],
+        "extensions": [
+          ".zpl",
+          ".prn",
+          ".label"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "zpl",
+        "scopeName": "source.zpl",
+        "path": "./syntaxes/zpl.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "zplflow.openPreview",
+        "title": "Open Live Preview",
+        "category": "zplflow"
+      }
+    ],
+    "configuration": {
+      "title": "zplflow",
+      "properties": {
+        "zplflow.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Your zplflow API key (e.g. zpl_live_xxx) with pipelines:apply scope."
+        },
+        "zplflow.apiUrl": {
+          "type": "string",
+          "default": "https://api.zplflow.com",
+          "description": "Base URL for the zplflow API (or your self-hosted on-premise gateway)."
+        },
+        "zplflow.dpi": {
+          "type": "number",
+          "enum": [152, 203, 300, 600],
+          "default": 203,
+          "description": "Default printhead resolution in DPI (152, 203, 300, or 600)."
+        },
+        "zplflow.widthMm": {
+          "type": "number",
+          "default": 101.6,
+          "description": "Default label width in millimeters (101.6mm = 4 inches)."
+        },
+        "zplflow.heightMm": {
+          "type": "number",
+          "default": 152.4,
+          "description": "Default label height in millimeters (152.4mm = 6 inches)."
+        },
+        "zplflow.renderMode": {
+          "type": "string",
+          "enum": ["onSave", "onType"],
+          "default": "onSave",
+          "description": "When to refresh the label preview: onSave (recommended for Free tier) or onType (debounced)."
+        },
+        "zplflow.debounceMs": {
+          "type": "number",
+          "default": 450,
+          "description": "Debounce delay in milliseconds when renderMode is onType."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "typecheck": "tsc --noEmit",
+    "test": "rm -rf /tmp/vscode-zplflow-build && tsc --outDir /tmp/vscode-zplflow-build && node --test /tmp/vscode-zplflow-build/test/*.test.js"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.2.0",
+    "typescript": "^5.7.3"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "comments": {
+    "lineComment": "^FX"
+  },
+  "brackets": [
+    ["^XA", "^XZ"]
+  ],
+  "autoClosingPairs": [
+    { "open": "^XA", "close": "^XZ" },
+    { "open": "^FD", "close": "^FS" }
+  ]
+}
