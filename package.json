@@ -29,7 +29,8 @@
   ],
   "activationEvents": [
     "onLanguage:zpl",
-    "onCommand:zplflow.openPreview"
+    "onCommand:zplflow.openPreview",
+    "onCommand:zplflow.restartLsp"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -60,6 +61,11 @@
         "command": "zplflow.openPreview",
         "title": "Open Live Preview",
         "category": "zplflow"
+      },
+      {
+        "command": "zplflow.restartLsp",
+        "title": "Restart Language Server",
+        "category": "zplflow"
       }
     ],
     "configuration": {
@@ -77,7 +83,12 @@
         },
         "zplflow.dpi": {
           "type": "number",
-          "enum": [152, 203, 300, 600],
+          "enum": [
+            152,
+            203,
+            300,
+            600
+          ],
           "default": 203,
           "description": "Default printhead resolution in DPI (152, 203, 300, or 600)."
         },
@@ -93,7 +104,10 @@
         },
         "zplflow.renderMode": {
           "type": "string",
-          "enum": ["onSave", "onType"],
+          "enum": [
+            "onSave",
+            "onType"
+          ],
           "default": "onSave",
           "description": "When to refresh the label preview: onSave (recommended for Free tier) or onType (debounced)."
         },
@@ -101,6 +115,16 @@
           "type": "number",
           "default": 450,
           "description": "Debounce delay in milliseconds when renderMode is onType."
+        },
+        "zplflow.lsp.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable the zplflow Language Server for autocompletion, hover docs, and parameter hints."
+        },
+        "zplflow.lsp.path": {
+          "type": "string",
+          "default": "",
+          "description": "Custom path to the zplflow-lsp executable. If empty, the extension looks in bin/, PATH, or ~/.zplflow/bin/."
         }
       }
     }
@@ -116,5 +140,8 @@
     "@types/vscode": "^1.85.0",
     "@vscode/vsce": "^3.2.0",
     "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
   }
 }
