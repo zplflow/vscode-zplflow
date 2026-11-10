@@ -2,7 +2,7 @@
   "name": "vscode-zplflow",
   "displayName": "zplflow — ZPL Live Preview & Label Tools",
   "description": "Pixel-perfect ZPL thermal label live preview, syntax highlighting, and pipeline tools powered by zplflow.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "publisher": "zplflow",
   "license": "MIT",
   "homepage": "https://zplflow.com",
