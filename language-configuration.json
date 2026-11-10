@@ -8,5 +8,6 @@
   "autoClosingPairs": [
     { "open": "^XA", "close": "^XZ" },
     { "open": "^FD", "close": "^FS" }
-  ]
+  ],
+  "wordPattern": "(-?\\d*\\.\\d\\w*)|((\\^|~)?[a-zA-Z0-9@#_]+)|(\\^|~)"
 }
