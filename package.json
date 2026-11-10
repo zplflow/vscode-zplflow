@@ -4,11 +4,15 @@
   "description": "Pixel-perfect ZPL thermal label live preview, syntax highlighting, and pipeline tools powered by zplflow.",
   "version": "0.2.0",
   "publisher": "zplflow",
+  "icon": "icon.png",
   "license": "MIT",
   "homepage": "https://zplflow.com",
   "repository": {
     "type": "git",
     "url": "https://github.com/zplflow/vscode-zplflow.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zplflow/vscode-zplflow/issues"
   },
   "engines": {
     "vscode": "^1.85.0"
