@@ -6,7 +6,7 @@
   "publisher": "zplflow",
   "icon": "icon.png",
   "license": "MIT",
-  "homepage": "https://zplflow.com",
+  "homepage": "https://zplflow.io",
   "repository": {
     "type": "git",
     "url": "https://github.com/zplflow/vscode-zplflow.git"
@@ -82,7 +82,7 @@
         },
         "zplflow.apiUrl": {
           "type": "string",
-          "default": "https://api.zplflow.com",
+          "default": "https://api.zplflow.io",
           "description": "Base URL for the zplflow API (or your self-hosted on-premise gateway)."
         },
         "zplflow.dpi": {

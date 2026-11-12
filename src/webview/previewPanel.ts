@@ -87,7 +87,7 @@ export class ZplPreviewPanel {
 
     const cfg = vscode.workspace.getConfiguration('zplflow');
     const apiKey = cfg.get<string>('apiKey', '');
-    const apiUrl = cfg.get<string>('apiUrl', 'https://api.zplflow.com');
+    const apiUrl = cfg.get<string>('apiUrl', 'https://api.zplflow.io');
 
     this.state.loading = true;
     this.state.errorMessage = undefined;

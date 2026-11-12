@@ -32,7 +32,7 @@ describe('ZplflowClient', () => {
     };
 
     const client = new ZplflowClient(10, mockFetch);
-    const first = await client.renderPreview('https://api.zplflow.com/', 'zpl_test_key', {
+    const first = await client.renderPreview('https://api.zplflow.io/', 'zpl_test_key', {
       zpl: '^XA^FDHello^FS^XZ',
       dpi: 300,
       widthMm: 100,
@@ -49,7 +49,7 @@ describe('ZplflowClient', () => {
     assert.equal(parsedReq.width_mm, 100);
     assert.equal(parsedReq.height_mm, 150);
 
-    const second = await client.renderPreview('https://api.zplflow.com/', 'zpl_test_key', {
+    const second = await client.renderPreview('https://api.zplflow.io/', 'zpl_test_key', {
       zpl: '^XA^FDHello^FS^XZ',
       dpi: 300,
       widthMm: 100,
@@ -73,7 +73,7 @@ describe('ZplflowClient', () => {
     const client = new ZplflowClient(10, mockFetch);
     await assert.rejects(
       async () => {
-        await client.renderPreview('https://api.zplflow.com', 'zpl_key', {
+        await client.renderPreview('https://api.zplflow.io', 'zpl_key', {
           zpl: '^XA^XZ',
         });
       },
